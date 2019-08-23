@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button class="navbar-toggle collapsed" type="button" appHam [dataToggle]="'collapse'" [dataTarget]="navLinks"
+        aria-expanded="false">
+        <span class="sr-only">Nav Toggle</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="#" class="navbar-brand">Contact Book</a>
+    </div>
+    <div class="collapse navbar-collapse" #navLinks>
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a [routerLink]="['/contacts']">Contact List</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <ng-template [ngIf]="!isAuthenticated()">
+            <li><a style="cursor: pointer;" [routerLink]="['/signup']">Register Here!</a></li>
+            <li><a style="cursor: pointer;" [routerLink]="['/signin']">Login Here!</a></li>
+        </ng-template>
+        
+        <li><a style="cursor: pointer;" (click)="logout()" *ngIf="isAuthenticated()">Logout</a></li>
+        <li *ngIf="isAuthenticated()" class="dropdown" appDropdown>
+          <a style="cursor: pointer;" class="dropdown-toggle" role="button">Manage<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a (click)="onSaveData()" style="cursor: pointer;">Save Data</a></li>
+            <li><a (click)="onFetchData()" style="cursor: pointer;">Fetch Data</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

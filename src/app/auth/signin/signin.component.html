@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <h1>
+      Sign In to your account
+    </h1>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form (ngSubmit)="onSignin(f)" #f="ngForm">
+      <div class="form-group">
+        <label for="email">Email:&nbsp;</label>
+        <input type="email" id="email" name="email" ngModel class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="password">password:&nbsp;</label>
+        <input type="password" id="password" name="password" ngModel class="form-control">
+      </div>
+       <span ng-if="isErrorAvai();" class="form-group text-warning">
+         {{getMessage() }}
+       </span>
+      <hr>
+      <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+  </div>
+  
+</div>
