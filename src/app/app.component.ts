@@ -8,8 +8,13 @@ import * as firebase from 'firebase';
 export class AppComponent implements OnInit {
   ngOnInit(): void {
     firebase.initializeApp({
-      apiKey: "AIzaSyBhHFG9pq9-pqR9lpgsNVFUJ1WjHWkqmIk",
-      authDomain: "http-angular-f6814.firebaseapp.com"
+      apiKey: "AIzaSyB-gfjWZTnSQ5TkylWnBYEO8h_a85gYw4Q",
+      authDomain: "contact-ed5b1.firebaseapp.com",
+      databaseURL: "https://contact-ed5b1.firebaseio.com",
+      projectId: "contact-ed5b1",
+      storageBucket: "",
+      messagingSenderId: "357317662626",
+      appId: "1:357317662626:web:6ea968f5fa722e95"
     });
   }
   constructor() {  }

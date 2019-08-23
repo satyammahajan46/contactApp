@@ -8,7 +8,17 @@ export class AuthService{
         this.token=null;
     }
     signUpUser(email: string, password:string){
-        return firebase.auth().createUserWithEmailAndPassword(email, password);
+        return firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(
+                response => {
+                    firebase.auth().currentUser.getIdToken()
+                        .then(
+                            (token: string) => this.token = token
+                        );
+                    firebase.auth().signInWithEmailAndPassword(email, password)
+                    this.router.navigate(['/']);
+                }
+            );
         
     }
 
