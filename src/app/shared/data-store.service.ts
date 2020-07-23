@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { Http, Response, RequestOptions } from "@angular/http";
 import { ContactService } from "../contacts/contact.service";
 import { Contact } from "../contacts/contact.model";
-import {map} from "rxjs/operators"
+import {map, tap} from "rxjs/operators"
 import { AuthService } from "../auth/auth-service";
 import { HttpClient, HttpParams } from '@angular/common/http';
 @Injectable()
@@ -40,12 +40,9 @@ export class DataStore {
                     return contacts;
                 }
             )
-        )
-        .subscribe(
-            (contacts: Contact[]) => {
-                //const recipes: Recipe[] = response.json();
-                this.cService.setContacts(contacts);
-            }
+        ,tap(contacts =>{
+            this.cService.setContacts(contacts);
+        }) 
         );
     }
 }

@@ -21,7 +21,7 @@ export class HeaderComponent {
     );
   }
   onFetchData(){
-    this.dataService.getContacts();
+    this.dataService.getContacts().subscribe();
   }
 
   logout(){

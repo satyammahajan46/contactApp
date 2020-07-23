@@ -6,13 +6,7 @@ import { Subject } from "rxjs";
 @Injectable()
 export class ContactService {
     contactChange: Subject<Contact[]>;
-    private contacts: Contact[] = [
-        new Contact("Test Subject!", "Hi there! my name is Satyam Mahajan, and I am the creater of this awesome website hope you like it!!", "https://www.maxpixel.net/static/photo/1x/Mushrooms-Recipe-Kitchen-French-Dish-2459679.jpg", [
-            new PhoneType('Work', '66666666'),
-            new PhoneType('Home', '14864415'),
-            new PhoneType('Address', '125St DreamLand, Brain')
-        ])
-    ];
+    private contacts: Contact[] = [];
     
 
     constructor() {
